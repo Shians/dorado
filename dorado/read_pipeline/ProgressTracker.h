@@ -108,11 +108,6 @@ public:
         // Barcode demuxing stats.
         m_num_barcodes_demuxed = int(fetch_stat("BarcodeClassifierNode.num_barcodes_demuxed"));
 
-        // don't output progress bar if stderr is not a tty
-        if (!utils::is_fd_tty(stderr)) {
-            return;
-        }
-
         if (m_num_reads_expected != 0) {
             // TODO: Add the ceiling because in duplex, reads written can exceed reads expected
             // because of the read splitting. That needs to be handled properly.
